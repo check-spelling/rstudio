@@ -1,0 +1,220 @@
+# See https://github.com/check-spelling/check-spelling/wiki/Configuration-Examples:-patterns
+
+# Automatically suggested patterns
+# hit-count: 40065 file-count: 488
+# hex digits including css/html color classes:
+(?:[\\0][xX]|\\u|[uU]\+|#x?|\%23)[0-9_a-fA-FgGrR]*?[a-fA-FgGrR]{2,}[0-9_a-fA-FgGrR]*(?:[uUlL]{0,3}|u\d+)\b
+
+# hit-count: 6482 file-count: 4598
+# https/http/file urls
+(?:\b(?:https?|ftp|file)://)[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]
+
+# hit-count: 1529 file-count: 161
+# GitHub SHAs (markdown)
+(?:\[`?[0-9a-f]+`?\]\(https:/|)/(?:www\.|)github\.com(?:/[^/\s"]+){2,}(?:/[^/\s")]+)(?:[0-9a-f]+(?:[-0-9a-zA-Z/#.]*|)\b|)
+
+# hit-count: 869 file-count: 64
+# version suffix <word>v#
+(?:(?<=[A-Z]{2})V|(?<=[a-z]{2}|[A-Z]{2})v)\d+(?:\b|(?=[a-zA-Z_]))
+
+# hit-count: 464 file-count: 100
+# Compiler flags
+(?:^|[\t ,>"'`=(])-[DWXYL](?=[A-Z]{2,}|[A-Z][a-z]|[a-z]{2,})
+(?:^|[\t ,>"'`=(])-f(?!ile|or|raction)(?=[A-Z]{2,}|[A-Z][a-z]|[a-z]{2,})
+
+# hit-count: 364 file-count: 82
+# IServiceProvider
+\bI(?=(?:[A-Z][a-z]{2,})+\b)
+
+# hit-count: 224 file-count: 166
+# w3
+\bw3\.org/[-0-9a-zA-Z/#.]+
+
+# hit-count: 190 file-count: 117
+# uuid:
+\b[0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}\b
+
+# hit-count: 163 file-count: 49
+# IPv6
+\b(?:[0-9a-fA-F]{0,4}:){3,7}[0-9a-fA-F]{0,4}\b
+
+# hit-count: 113 file-count: 19
+# URL escaped characters
+\%[0-9A-F][A-F]
+
+# hit-count: 88 file-count: 5
+# Non-English
+[a-zA-Z]*[ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź][a-zA-Z]{3}[a-zA-ZÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź]*
+
+# hit-count: 77 file-count: 19
+# JavaScript regular expressions
+# javascript test regex
+/.*/[gim]*\.test\(
+
+# hit-count: 68 file-count: 37
+# hex runs
+\b[0-9a-fA-F]{16,}\b
+
+# hit-count: 57 file-count: 5
+# ANSI color codes
+(?:\\(?:u00|x)1[Bb]|\x1b|\\u\{1[Bb]\})\[\d+(?:;\d+|)m
+
+# hit-count: 53 file-count: 43
+# data url
+data:[-a-zA-Z=;:/0-9+]*,\S*
+
+# hit-count: 41 file-count: 15
+# javascript replace regex
+\.replace\(/[^/\s"]*/[gim]*\s*,
+
+# hit-count: 29 file-count: 27
+# data url in parens
+\(data:[^)]*?(?:[A-Z]{3,}|[A-Z][a-z]{2,}|[a-z]{3,})[^)]*\)
+
+# hit-count: 24 file-count: 18
+# tar arguments
+\b(?:\\n|)g?tar(?:\.exe|)(?:(?:\s+--[-a-zA-Z]+|\s+-[a-zA-Z]+|\s[ABGJMOPRSUWZacdfh-pr-xz]+\b)(?:=[^ ]*|))+
+
+# hit-count: 23 file-count: 21
+# data url in quotes
+([`'"])data:.*?(?:[A-Z]{3,}|[A-Z][a-z]{2,}|[a-z]{3,}).*\g{-1}
+
+# hit-count: 19 file-count: 7
+# githubusercontent
+/[-a-z0-9]+\.githubusercontent\.com/[-a-zA-Z0-9?&=_\/.]*
+
+# hit-count: 18 file-count: 12
+# Wikipedia
+\ben\.wikipedia\.org/wiki/[-\w%.#]+
+
+# hit-count: 15 file-count: 10
+# microsoft
+\b(?:https?://|)(?:(?:download\.visualstudio|docs|msdn2?|research)\.microsoft|blogs\.msdn)\.com/[-_a-zA-Z0-9()=./%]*
+
+# hit-count: 15 file-count: 10
+# stackexchange -- https://stackexchange.com/feeds/sites
+\b(?:askubuntu|serverfault|stack(?:exchange|overflow)|superuser).com/(?:questions/\w+/[-\w]+|a/)
+
+# hit-count: 14 file-count: 10
+# javascript match regex
+\.match\(/[^/\s"]*/[gim]*\s*
+
+# hit-count: 8 file-count: 3
+# shields.io
+\bshields\.io/[-\w/%?=&.:+;,]*
+
+# hit-count: 6 file-count: 3
+# Python stringprefix / binaryprefix
+# Note that there's a high false positive rate, remove the `?=` and search for the regex to see if the matches seem like reasonable strings
+(?<!')\b(?:B|BR|Br|F|FR|Fr|R|RB|RF|Rb|Rf|U|UR|Ur|b|bR|br|f|fR|fr|r|rB|rF|rb|rf|u|uR|ur)'(?:[A-Z]{3,}|[A-Z][a-z]{2,}|[a-z]{3,})
+
+# hit-count: 5 file-count: 5
+# mailto urls
+mailto:[-a-zA-Z=;:/?%&0-9+@.]{3,}
+
+# hit-count: 4 file-count: 4
+# apple
+\bdeveloper\.apple\.com/[-\w?=/]+
+
+# hit-count: 4 file-count: 2
+# While you could try to match `http://` and `https://` by using `s?` in `https?://`, sometimes there
+# YouTube url
+\b(?:(?:www\.|)youtube\.com|youtu.be)/(?:channel/|embed/|user/|playlist\?list=|watch\?v=|v/|)[-a-zA-Z0-9?&=_%]*
+
+# hit-count: 3 file-count: 2
+# Google Fonts
+\bfonts\.(?:googleapis|gstatic)\.com/[-/?=:;+&0-9a-zA-Z]*
+
+# hit-count: 3 file-count: 2
+# sha-... -- uses a fancy capture
+(['"]|&quot;)[0-9a-f]{40,}\g{-1}
+
+# hit-count: 3 file-count: 1
+# Google Groups
+\bgroups\.google\.com(?:/[a-z]+/(?:#!|)[^/\s"]+)*
+
+# hit-count: 2 file-count: 2
+# appveyor api
+\bci\.appveyor\.com/api/projects/status/[0-9a-z]+
+
+# hit-count: 2 file-count: 2
+# git.io
+\bgit\.io/[0-9a-zA-Z]+
+
+# hit-count: 2 file-count: 2
+# vs devops
+\bvisualstudio.com(?::443|)/[-\w/?=%&.]*
+
+# hit-count: 2 file-count: 2
+# Twitter status
+\btwitter\.com/[^/\s"')]*(?:/status/\d+(?:\?[-_0-9a-zA-Z&=]*|)|)
+
+# hit-count: 2 file-count: 2
+# .desktop mime types
+^MimeTypes?=.*$
+
+# hit-count: 2 file-count: 1
+# AWS S3
+\b\w*\.s3[^.]*\.amazonaws\.com/[-\w/&#%_?:=]*
+
+# hit-count: 2 file-count: 1
+# Internet Archive
+\barchive\.org/web/\d+/(?:[-\w.?,'/\\+&%$#_:]*)
+
+# hit-count: 2 file-count: 1
+# c99 hex digits (not the full format, just one I've seen)
+0x[0-9a-fA-F](?:\.[0-9a-fA-F]*|)[pP]
+
+# hit-count: 2 file-count: 1
+# Compiler flags (Scala)
+(?:^|[\t ,>"'`=(])-J-[DPWXY](?=[A-Z]{2,}|[A-Z][a-z]|[a-z]{2,})
+
+# hit-count: 1 file-count: 1
+# git index header
+index (?:[0-9a-z]{7,40},|)[0-9a-z]{7,40}\.\.[0-9a-z]{7,40}
+
+# hit-count: 1 file-count: 1
+# magnet urls
+magnet:[?=:\w]+
+
+# hit-count: 1 file-count: 1
+# Google Storage
+\b[-a-zA-Z0-9.]*\bstorage\d*\.googleapis\.com(?:/\S*|)
+
+# hit-count: 1 file-count: 1
+# bit.ly
+\bbit\.ly/\w+
+
+# hit-count: 1 file-count: 1
+# curl arguments
+\b(?:\\n|)curl(?:\s+-[a-zA-Z]{1,2}\b)*(?:\s+-[a-zA-Z]{3,})(?:\s+-[a-zA-Z]+)*
+
+id="format_8h_[0-9a-f]+
+
+# Questionably acceptable forms of `in to`
+# Personally, I prefer `log into`, but people object
+# https://www.tprteaching.com/log-into-log-in-to-login/
+\b[Ll]og in to\b
+
+# acceptable duplicates
+# ls directory listings
+[-bcdlpsw](?:[-r][-w][-Ssx]){3}\s+\d+\s+\S+\s+\S+\s+\d+\s+
+# mount
+\bmount\s+-t\s+(\w+)\s+\g{-1}\b
+# C types and repeated CSS values
+\s(center|div|easy|inherit|jenkins|long|LONG|nan|none|normal|section|solid|stmt|string|template|thin|transparent|very|worldhello)(?: \g{-1})+\s
+# C struct
+\bstruct\s+(\w+)\s+\g{-1}\b
+# go templates
+\s(\w+)\s+\g{-1}\s+\`(?:graphql|json|yaml):
+# javadoc / .net
+(?:[\\@](?:groupname|t?param)|(?:public|private)(?:\s+static|\s+readonly)*)\s+(\w+)\s+\g{-1}\s
+
+# Commit message -- Signed-off-by and friends
+^\s*(?:(?:Based-on-patch|Co-authored|Helped|Mentored|Reported|Reviewed|Signed-off)-by|Thanks-to): (?:[^<]*<[^>]*>|[^<]*)\s*$
+
+# Autogenerated revert commit message
+^This reverts commit [0-9a-f]{40}\.$
+
+# ignore long runs of a single character:
+\b([A-Za-z])\g{-1}{3,}\b
